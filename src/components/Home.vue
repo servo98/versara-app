@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" style="">
     <router-link to="/payments">Pagar</router-link> |
     <router-link to="/request">Solicitar Crédito</router-link>
   </div>
