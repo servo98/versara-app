@@ -5,9 +5,11 @@
       <section class="hero is-fullheight is-primary is-bold">
         <div class="hero-body">
           <div class="container has-text-centered">
-            <h1 class="title h1 has-text-black">Tu score obtenido es :</h1>
+            <h1 class="title h1 has-text-black">{{texto}}:</h1>
             <h2 class="subtitle has-text-black">{{newScore}}</h2>
-            <progress class="progress is-large is-success" :value="newScore" max="100"></progress>
+            <progress v-bind:class="['progress', 'is-large', color]" :value="newScore" max="100"></progress>
+            <br/>
+
             <router-link to="/">
               <button class="button is-rounded is-warning is-fullwidth is-large">Volver al inicio</button>
             </router-link>
@@ -48,7 +50,9 @@ export default {
       },
       score: 0,
       newScore: 0,
-      isFinish: false
+      isFinish: false,
+      color: '' ,
+      texto: ''
     };
   },
   computed: {
@@ -108,6 +112,8 @@ export default {
         .then(res => {
           this.newScore = res.data.result.score.toFixed(0);
           this.isFinish = true;
+          this.color = this.newScore <= 39 ? 'is-warning' : this.newScore <= 79 ? 'is-link' : 'is-success'
+          this.texto = (this.newScore <= 39 ? 'No te des por vencida' : this.newScore <= 79 ? 'Ya casi lo logras' : 'Lo lograste') + ', tu score es'
           alert("Solicitud enviada con éxito");
         })
         .catch((error) => {
