@@ -106,7 +106,7 @@ export default {
       await this.$store
         .dispatch(CREATE_PROSPECTUS, this.prospect)
         .then(res => {
-          this.newScore = res.data.result.score;
+          this.newScore = res.data.result.score.toFixed(0);
           this.isFinish = true;
           alert("Solicitud enviada con éxito");
         })
