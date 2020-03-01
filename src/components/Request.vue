@@ -1,177 +1,157 @@
 <template>
   <div class="container">
-    <div class="buttons">
-      <button class="button is-primary">Primary</button>
-      <button class="button is-link">Link</button>
-    </div>
-    <form action>
-      <div class="field">
-        <label class="label">Edad</label>
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="age" />
-            Entre 18 y 25
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="age" />
-            Entre 25 y 30
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="age" />
-            Entre 30 y 35
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="age" />
-            Entre 35 y 45
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="age" />
-            Mayor a 45
-          </label>
-        </div>
-      </div>
+      [{
+        "question":"Edad",
+        "name": "age",
+        type:"radio",
+        "answers": [{
+          "value":"Entre 18 y 25",
+          "string":"Entre 18 y 25",
+          },
+          {
+          "value":"Entre 25 y 30",
+          "string":"Entre 25 y 30",
+          },
+          {
+          "value":"Entre 30 y 35",
+          "string":"Entre 30 y 35",
+          },
+          {
+          "value":"Entre 35 y 45",
+          "string":"Entre 35 y 45",
+          },
+          {
+          "value":"Mayor a 45",
+          "string":"Mayor a 45",
+          },
+        ]
+      },
+      {
+        "question":"País",
+        "name": "country",
+        type:"text",
+      },
+      {
+        "question":"Ingresos promedio al año en USD",
+        "name": "income",
+        type:"radio",
+        "answers": [{
+          "value":"Entre 3.300 y 5.000",
+          "string":"Entre 3.300 y 5.000",
+          },
+          {
+          "value":"Entre 5.000 y 10.000",
+          "string":"Entre 5.000 y 10.000",
+          },
+          {
+          "value":"Entre 10.000 y 20.000",
+          "string":"Entre 10.000 y 20.000",
+          },
+          {
+          "value":"Entre 20.000 y 30.000",
+          "string":"Entre 20.000 y 30.000",
+          },
+          {
+          "value":"Entre 30.000 y 40.000",
+          "string":"Entre 30.000 y 40.000",
+          },
+          {
+          "value":"Superior a 40.000",
+          "string":"Superior a 40.000",
+          },
+          {
+          "value":"No recibo ingresos",
+          "string":"No recibo ingresos",
+          },
+        ]
+      },
+      {
+        "question":"Estado Civil",
+        "name": "status",
+        type:"radio",
+        "answers": [{
+          "value":"soltera",
+          "string":"soltera",
+          },
+          {
+          "value":"casada",
+          "string":"casada",
+          },
+          {
+          "value":"divorciada",
+          "string":"divorciada",
+          },
+          {
+          "value":"unión libre",
+          "string":"unión libre",
+          },
+          {
+          "value":"viuda",
+          "string":"viuda",
+          },
+          {
+          "value":"Otro",
+          "string":"Otro",
+          },
+        ]
+      },
+      {
+        "question":"¿Cuantos?",
+        "name": "children",
+        type:"number",
+      },
+      {
+        "question":"¿Tienes hijos?",
+        "name": "child",
+        type:"radio",
+        "answers": [{
+          "value":"Sí",
+          "string":"Sí",
+          },
+          {
+          "value":"No",
+          "string":"No",
+          },
+        ]
+      },
+      {
+        "question":"Correo",
+        "name": "email",
+        "placeholder": "556474444",
+        type:"phone",
+      },
+      {
+        "question":"Teléfono",
+        "name": "email",
+        "placeholder": "556474444",
+        type:"phone",
+      },
+      {
+        "question": "Dirección",
+        "name": "address",
+        "type": "textarea",
+        "placeholder": "Calle colonia",
+      },
+      {
+        "question":"Nombre",
+        "name": "name",
+        "placeholder": "Nombre Apellidos",
+        type:"text",
+      },
+      {
+        "question":"Correo",
+        "name": "email",
+        "placeholder": "correo@ejemplo.com",
+        type:"email",
+      },
+      ]
 
-      <div class="field">
-        <label class="label">País</label>
-        <div class="control">
-          <input class="input is-primary" name="country" type="text" placeholder="País" />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Ingresos promedio al año en USD</label>
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="income" />
-            Entre 3.300 y 5.000
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="income" />
-            Entre 5.000 y 10.000
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="income" />
-            Entre 10.000 y 20.000
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="income" />
-            Entre 20.000 y 30.000
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="income" />
-            Entre 30.000 y 40.000
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="income" />
-            Superior a 40.000
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="income" />
-            No recibo ingresos
-          </label>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Estado Civil</label>
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name="status" />
-            soltera
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="status" />
-            casada
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="status" />
-            divorciada
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="status" />
-            unión libre
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="status" />
-            viuda
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name="status" />
-            Otro
-          </label>
-          <div class="control">
-            <input class="input" name="status" type="text" />
-          </div>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">¿Tienes hijos?</label>
-        <div class="control">
-          <label class="radio">
-            <input type="radio" name />
-            Sí
-          </label>
-          <br />
-          <label class="radio">
-            <input type="radio" name />
-            No
-          </label>
-          <div class="control">
-            <label class="label">¿Cuántos?</label>
-            <input class="input" name="children" type="number" />
-          </div>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Teléfono</label>
-        <div class="control">
-          <input class="input" type="phone" placeholder="556474444" />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Dirección</label>
-        <div class="control">
-          <textarea name="address" class="textarea" placeholder="Calle colonia"></textarea>
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Nombre</label>
-        <div class="control">
-          <input class="input" type="text" name="name" placeholder="Nombre Apellidos" />
-        </div>
-      </div>
-
-      <div class="field">
-        <label class="label">Correo</label>
-        <div class="control">
-          <input class="input" type="email" name="email" placeholder="correo@ejemplo.com" />
-        </div>
-      </div>
-
-    </form>
   </div>
 </template>
 
 <script>
+import { FIND_QUESTIONS } from '../store/actions/question';
+
 export default {
   name: "Request",
   props: {
@@ -179,15 +159,27 @@ export default {
   },
   data: function() {
     return {
-      dire: process.env.VUE_APP_SERVICE_URL
+
     };
   },
   computed: {
     questions: {
       get() {
-        return 0;
-      }
+        return this.$store.getters.questions;
+      },
+      set(questions) {
+        this.$store.commit(FIND_QUESTIONS, questions);
+      },
     }
+  },
+  methods: {
+    getQuestions(){
+      this.$store.dispatch(FIND_QUESTIONS)
+    }
+  },
+  mounted() {
+    this.getQuestions();
   }
 };
 </script>
+
