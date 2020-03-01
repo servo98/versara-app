@@ -103,12 +103,12 @@ export default {
       await this.$store
         .dispatch(CREATE_PROSPECTUS, this.prospect)
         .then(res => {
+          this.newScore = res.score;
           alert("Solicitud enviada con éxito");
           isFinish = true;
         })
         .catch(() => {
           alert("Hubo un error con tu solicitud. Reinicia tu solitud");
-          this.$router.push("/request");
         });
     }
   },
