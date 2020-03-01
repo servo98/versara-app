@@ -18,6 +18,13 @@
         </router-link>
       </div>
     </div>
+    <div class="columns">
+      <div class="column is-4 is-offset-4">
+        <router-link to="/credit">
+          <button class="button is-rounded is-link is-fullwidth is-large">Simulador</button>
+        </router-link>
+      </div>
+    </div>
   </div>
 </template>
 

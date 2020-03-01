@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Input :question="selectedQuestion"/>
+    <Input :question="selectedQuestion" @next="catchNext"/>
   </div>
 </template>
 
@@ -39,6 +39,9 @@ export default {
       await this.$store.dispatch(FIND_QUESTIONS)
         .catch(e => console.log(e));
       this.selectedQuestion = this.$store.getters.questionsProfile[0];
+    },
+    catchNext(answerOfQuestion) {
+      debugger;
     },
     setSelectedQuestion(selected, type = 'profile') {
         if (type === 'profile') {

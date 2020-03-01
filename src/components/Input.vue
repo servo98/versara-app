@@ -4,12 +4,12 @@
         <div class="container">
           <div class="columns">
             <div class="column is-mobile is-offset-4 is-4 is-12-mobile">
-              <h1 class="title is-1 has-text-black	">{{q.question}}</h1>
+              <h1 class="title is-1 has-text-black">{{q.question}}</h1>
               <div class="field" v-show="q.type==='radio'">
                 <div v-show="q.type ==='radio'" class="control checkboxCustom" >
-                  <label class="radio" v-for="answer in q.answers" :key="answer">
-                    <input type="radio" :name="q.name" />
-                      {{answer.string}}
+                  <label class="radio" v-for="(answer, i) in q.answers" :key="i">
+                    <input type="radio" :name="q.name" :value="answer.string" @click="change"/>
+                      
                   </label>
                 </div>
                 <div class="field-body" v-show="q.type==='text'">
@@ -27,7 +27,7 @@
                   </div>
                 </div>
               </div>
-              <button @click="next" class="button is-success is-large is-fullwidth">{{Siguiente}}</button>
+              <button @click="next" class="button is-success is-large is-fullwidth">Siguiente</button>
             </div>
           </div>
         </div>
@@ -45,42 +45,42 @@ export default {
       q: {
         question:'',
         answers: [],
-        answerOfQuestion: '',
       },
+      answerOfQuestion: '',
     };
   },
   methods:{
     next() {
-      if(answerOfQuestion.lenght > 0) {
-        this.$emit('next', answerOfQuestion);
+      if(this.answerOfQuestion > 0) {
+        this.$emit('next', this.answerOfQuestion);
       } else {
         alert('no has respondido esta pregunta');
       }
-    }
+    },
+    change(event){
+      console.log("click,",event.target.value);
+      this.answerOfQuestion = event.target.value;
+    },
   },
   watch:{
-    question: function(newVal, oldVal) { // watch it
-          this.q = !!newVal ? {
-          question:'',
-          answers: [],
-          answerOfQuestion: '',
-        } : newVal;
+    question: function(newVal, oldVal) {
+          this.q = newVal || oldVal;
           this.answerOfQuestion = '';
     }
   },
   computed:{
-    index: {
+    canNext: {
       get(){
-        if (this.$store.getters.questionsProfile.indexOf(this.question)){
-          const index = this.$store.getters.questionsProfile.indexOf(this.question);
-        } else if(this.$store.getters.questionsScore.indexOf(this.question)){
-          const index = this.$store.getters.questionsProfile.indexOf(this.question);
-        }
+       return true;
       }
     }
   },
   mounted(){
-    this.q = this.question;
+    this.$set(this.q, this.question ? {
+          question:'',
+          answers: [],
+        } : this.question);
+    this.answerOfQuestion = '';
   }
 };
 </script>

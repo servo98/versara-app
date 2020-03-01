@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '@/components/Home.vue'
 import Request from '@/components/Request.vue'
 import Payment from "@/components/Payment.vue"
+import Credit from '@/components/Credit.vue'
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [
     path: '/payments',
     name: 'Payment',
     component: Payment
+  },
+  {
+    path: '/credit',
+    name: 'Credit',
+    component: Credit
   }
 ]
 
