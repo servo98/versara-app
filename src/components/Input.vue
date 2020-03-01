@@ -5,12 +5,27 @@
           <div class="columns">
             <div class="column is-mobile is-offset-4 is-4 is-12-mobile">
               <h1 class="title is-1 has-text-black	">{{q.question}}</h1>
-              <div class="field">
+              <div class="field" v-show="q.type==='radio'">
                 <div v-show="q.type ==='radio'" class="control checkboxCustom" >
                   <label class="radio" v-for="answer in q.answers" :key="answer">
                     <input type="radio" :name="q.name" />
                       {{answer.string}}
                   </label>
+                </div>
+                <div class="field-body" v-show="q.type==='text'">
+                  <div class="field">
+                    <div class="control">
+                      <input
+                        class="input"
+                        name="username"
+                        id="username"
+                        type="text"
+                        placeholder="Username"
+                        autofocus
+                        data-validate="require"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
               <button @click="next" class="button is-success is-large is-fullwidth">{{Siguiente}}</button>
