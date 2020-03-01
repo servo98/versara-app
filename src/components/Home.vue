@@ -39,7 +39,7 @@ export default {
   margin-right: auto;
 }
 .image {
-  max-width: 400px;
+  max-width: 300px;
 }
 .h1 {
   font-family: "Aleo Light";

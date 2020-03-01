@@ -7,7 +7,7 @@
             <div class="field">
               <label class="label">Monto</label>
               <div class="control">
-                <input v-model="amount" class="input" type="text" />
+                <input v-model="amount" class="input" type="number" />
               </div>
             </div>
           </div>
@@ -17,13 +17,13 @@
             <div class="field">
               <label class="label">Plazo(meses)</label>
               <div class="control">
-                <input v-model="time" class="input" type="text" />
+                <input v-model="time" class="input" type="number" />
               </div>
             </div>
             <button @click="calcular" class="button is-large is-link is-fullwidth">Calcular crédito</button>
           </div>
         </div>
-        <div class="has-text-centered" v-if="message!=''">
+        <div class="has-text-centered table-container" v-if="message!=''">
           <br />
           <div class="columns">
             <div class="column notification is-success is-6 is-offset-3">{{this.message}}</div>

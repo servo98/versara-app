@@ -12,7 +12,7 @@ const getters = {
 const actions = {
     [CREATE_PROSPECTUS]: ({ commit, state }, params) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('/prospectus', params.prospectus).then((resp) => {
+            axios.post('/prospectus', params).then((resp) => {
                 resolve(resp.result);
                 commit(CREATE_PROSPECT,resp.result)
             }).catch((error) => {
