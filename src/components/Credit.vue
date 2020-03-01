@@ -1,5 +1,8 @@
 <template>
   <section class="hero is-primary is-fullheight">
+    <div class="has-text-centered">
+        <h1 class="hero-head has-text-black  title h1">Simulador de crédito</h1>
+    </div>
     <div class="hero-body">
       <div class="container">
         <div class="columns">

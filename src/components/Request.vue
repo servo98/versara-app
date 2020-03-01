@@ -8,6 +8,9 @@
             <h1 class="title h1 has-text-black">Tu score obtenido es :</h1>
             <h2 class="subtitle has-text-black">{{newScore}}</h2>
             <progress class="progress is-large is-success" :value="newScore" max="100"></progress>
+            <router-link to="/">
+              <button class="button is-rounded is-warning is-fullwidth is-large">Volver al inicio</button>
+            </router-link>
           </div>
         </div>
       </section>
