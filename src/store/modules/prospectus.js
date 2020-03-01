@@ -13,8 +13,9 @@ const actions = {
     [CREATE_PROSPECTUS]: ({ commit, state }, params) => {
         const promise = new Promise((resolve, reject) => {
             axios.post('/prospectus', params).then((resp) => {
-                resolve(resp.result);
-                commit(CREATE_PROSPECT,resp.result)
+                console.log(resp);
+                resolve(resp);
+                commit(CREATE_PROSPECTUS, resp)
             }).catch((error) => {
                 reject(error);
             });
@@ -25,7 +26,7 @@ const actions = {
 
 const mutations = {
     [CREATE_PROSPECTUS]: (state, resp) => {
-        state.prospect = resp;
+        state.prospectus = resp;
     },
 };
 
