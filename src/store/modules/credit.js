@@ -1,5 +1,5 @@
 import axios from '../../utils/http';
-import { PAY_CREDIT, FIND_ONE_CREDIT } from '../actions/credit';
+import { PAY_CREDIT, FIND_ONE_CREDIT, CALCULATE_CREDIT } from '../actions/credit';
 
 const state = {
     credit: [],
@@ -12,7 +12,17 @@ const getters = {
 const actions = {
     [PAY_CREDIT]: ({ commit, state }, params) => {
         const promise = new Promise((resolve, reject) => {
-            axios.post('/', params.sensei).then((resp) => {
+            axios.post('/credit/pay', params).then((resp) => {
+                resolve(resp.data);
+            }).catch((error) => {
+                reject(error);
+            });
+        });
+        return promise;
+    },
+    [CALCULATE_CREDIT]: ({ commit, state }, params) => {
+        const promise = new Promise((resolve, reject) => {
+            axios.post('/credit/calculate', params).then((resp) => {
                 resolve(resp.data);
             }).catch((error) => {
                 reject(error);

@@ -1,13 +1,20 @@
 @charset "utf-8";
 
+$color1: #b16aff;
+$color2: #874aff;
+$color3: #23b461;
+$color4: #ffc740;
+$color5: #49cca71a;
 
-$color1: #3dc1d3;
+$color6: #3dc1d3;
 
-$color2: #ff7f50;
+$color7: #ff7f50;
 
-$color3: #49cca71a;
+$color8: #49cca7;
 
-$background: $color3;
+$primary: $color5;
+$warning: $color7;
+$info: $color8;
 
 @import '~bulma-steps';
 @import "~bulma/bulma.sass";

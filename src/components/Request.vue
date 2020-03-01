@@ -1,185 +1,57 @@
 <template>
   <div class="container">
-      [{
-        "question":"Edad",
-        "name": "age",
-        type:"radio",
-        "answers": [{
-          "value":"Entre 18 y 25",
-          "string":"Entre 18 y 25",
-          },
-          {
-          "value":"Entre 25 y 30",
-          "string":"Entre 25 y 30",
-          },
-          {
-          "value":"Entre 30 y 35",
-          "string":"Entre 30 y 35",
-          },
-          {
-          "value":"Entre 35 y 45",
-          "string":"Entre 35 y 45",
-          },
-          {
-          "value":"Mayor a 45",
-          "string":"Mayor a 45",
-          },
-        ]
-      },
-      {
-        "question":"País",
-        "name": "country",
-        type:"text",
-      },
-      {
-        "question":"Ingresos promedio al año en USD",
-        "name": "income",
-        type:"radio",
-        "answers": [{
-          "value":"Entre 3.300 y 5.000",
-          "string":"Entre 3.300 y 5.000",
-          },
-          {
-          "value":"Entre 5.000 y 10.000",
-          "string":"Entre 5.000 y 10.000",
-          },
-          {
-          "value":"Entre 10.000 y 20.000",
-          "string":"Entre 10.000 y 20.000",
-          },
-          {
-          "value":"Entre 20.000 y 30.000",
-          "string":"Entre 20.000 y 30.000",
-          },
-          {
-          "value":"Entre 30.000 y 40.000",
-          "string":"Entre 30.000 y 40.000",
-          },
-          {
-          "value":"Superior a 40.000",
-          "string":"Superior a 40.000",
-          },
-          {
-          "value":"No recibo ingresos",
-          "string":"No recibo ingresos",
-          },
-        ]
-      },
-      {
-        "question":"Estado Civil",
-        "name": "status",
-        type:"radio",
-        "answers": [{
-          "value":"soltera",
-          "string":"soltera",
-          },
-          {
-          "value":"casada",
-          "string":"casada",
-          },
-          {
-          "value":"divorciada",
-          "string":"divorciada",
-          },
-          {
-          "value":"unión libre",
-          "string":"unión libre",
-          },
-          {
-          "value":"viuda",
-          "string":"viuda",
-          },
-          {
-          "value":"Otro",
-          "string":"Otro",
-          },
-        ]
-      },
-      {
-        "question":"¿Cuantos?",
-        "name": "children",
-        type:"number",
-      },
-      {
-        "question":"¿Tienes hijos?",
-        "name": "child",
-        type:"radio",
-        "answers": [{
-          "value":"Sí",
-          "string":"Sí",
-          },
-          {
-          "value":"No",
-          "string":"No",
-          },
-        ]
-      },
-      {
-        "question":"Correo",
-        "name": "email",
-        "placeholder": "556474444",
-        type:"phone",
-      },
-      {
-        "question":"Teléfono",
-        "name": "email",
-        "placeholder": "556474444",
-        type:"phone",
-      },
-      {
-        "question": "Dirección",
-        "name": "address",
-        "type": "textarea",
-        "placeholder": "Calle colonia",
-      },
-      {
-        "question":"Nombre",
-        "name": "name",
-        "placeholder": "Nombre Apellidos",
-        type:"text",
-      },
-      {
-        "question":"Correo",
-        "name": "email",
-        "placeholder": "correo@ejemplo.com",
-        type:"email",
-      },
-      ]
-
+    <Input :question="selectedQuestion"/>
   </div>
 </template>
 
 <script>
 import { FIND_QUESTIONS } from '../store/actions/question';
-
+import Input from "../components/Input.vue";
 export default {
   name: "Request",
   props: {
     msg: String
   },
+  components: {
+    Input,
+  },
   data: function() {
     return {
-
+      selectedQuestion: null,
+      type: 'profile',
     };
   },
   computed: {
-    questions: {
+    questionsProfile: {
       get() {
-        return this.$store.getters.questions;
+        return this.$store.getters.questionsProfile;
       },
-      set(questions) {
-        this.$store.commit(FIND_QUESTIONS, questions);
+    },
+    questionsScore: {
+      get() {
+        return this.$store.getters.questionsScore;
       },
-    }
+    },
   },
   methods: {
-    getQuestions(){
-      this.$store.dispatch(FIND_QUESTIONS)
+
+    async getQuestions(){
+      await this.$store.dispatch(FIND_QUESTIONS)
+        .catch(e => console.log(e));
+      this.selectedQuestion = this.$store.getters.questionsProfile[0];
+    },
+    setSelectedQuestion(selected, type = 'profile') {
+        if (type === 'profile') {
+          const index = this.$store.getters.questionsProfile.indexOf(selected);
+          return this.$store.getters.questionsProfile[index + 1];
+        };
+        const index = this.$store.getters.selectedQuestion.indexOf(selected);
+        return this.$store.getters.selectedQuestion[index + 1];
     }
   },
   mounted() {
     this.getQuestions();
-  }
+  },
 };
 </script>
 
