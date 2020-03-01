@@ -1,9 +1,9 @@
 <template>
   <div class="container">
-      <div class="buttons">
-  <button class="button is-primary">Primary</button>
-  <button class="button is-link">Link</button>
-</div>
+    <div class="buttons">
+      <button class="button is-primary">Primary</button>
+      <button class="button is-link">Link</button>
+    </div>
     <form action>
       <div class="field">
         <label class="label">Edad</label>
@@ -124,20 +124,49 @@
         <label class="label">¿Tienes hijos?</label>
         <div class="control">
           <label class="radio">
-            <input type="radio" name="status" />
+            <input type="radio" name />
             Sí
           </label>
           <br />
           <label class="radio">
-            <input type="radio" name="status" />
+            <input type="radio" name />
             No
           </label>
           <div class="control">
             <label class="label">¿Cuántos?</label>
-            <input class="input" name="status" type="text" />
+            <input class="input" name="children" type="number" />
           </div>
         </div>
       </div>
+
+      <div class="field">
+        <label class="label">Teléfono</label>
+        <div class="control">
+          <input class="input" type="phone" placeholder="556474444" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Dirección</label>
+        <div class="control">
+          <textarea name="address" class="textarea" placeholder="Calle colonia"></textarea>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Nombre</label>
+        <div class="control">
+          <input class="input" type="text" name="name" placeholder="Nombre Apellidos" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Correo</label>
+        <div class="control">
+          <input class="input" type="email" name="email" placeholder="correo@ejemplo.com" />
+        </div>
+      </div>
+
     </form>
   </div>
 </template>
@@ -152,6 +181,13 @@ export default {
     return {
       dire: process.env.VUE_APP_SERVICE_URL
     };
+  },
+  computed: {
+    questions: {
+      get() {
+        return 0;
+      }
+    }
   }
 };
 </script>
