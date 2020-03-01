@@ -17,12 +17,11 @@
                     <div class="control">
                       <input
                         class="input"
-                        name="username"
-                        id="username"
+                        :name="q.name"
+                        :id="q.name"
                         type="text"
-                        placeholder="Username"
+                        :placeholder="q.placeholder || ''"
                         autofocus
-                        data-validate="require"
                       />
                     </div>
                   </div>
