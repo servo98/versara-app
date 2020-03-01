@@ -32,4 +32,4 @@ https://github.com/servo98/versara-api
 # Aplication
 https://versara-app.now.sh/
 
-![GitHub Logo](https://i.imgur.com/OV0jn89.jpg)
+![GitHub Logo](https://i.imgur.com/GJ0MzR6.jpg)
